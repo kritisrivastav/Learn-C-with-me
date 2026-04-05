@@ -2,16 +2,15 @@
 #include <functionpointers.h>
 #include <FunctionObject.h>
 #include <Multiplier.h>
+#include <Person.h>
+#include <utility.h>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
 
-void print_if(std::vector<int> nums, bool (*predicate)(int))
-{
-    //This function takes a vector and a function pointer as arguments
 
-}
+
+
 
 int main()
 {
@@ -82,5 +81,49 @@ int main()
     };
     std::cout<<"\n";
     std::cout<<"The array sum is"<<sum(n, numbers);
+    std::cout<<"\n";
+    //Here is a demo to send lamda expressions to functions.
+    print_if(vecObj, [](auto x){return x%2 == 0;});
+    //Lets see how it is working
+    //We know that a lamda expression is a functional object. And a function pointer stores the address of a function.
+    //So here the question arises that how can we pass a functional object to a function where function pointer is expected.
+    //Stateless lamdas have an implicit conversion to function pointers.
+    //Here compiler will treat your lambda expression as a function.
+    testPerson();
+
+    //Next we have another function which accepts functional object as parameter.
+    filter_vector(vecObj, [](int x){return x > 10;});
+
+    //using sorting function of STL which uses a comparator functor
+    sorting_function();
+
+    //Now we will be working with stateful lamdas
+    //capture by value
+    stateful_test1();
+
+    //capture by value mutable.
+    //capture by value variables cannot be modifed inside the lamda without making the lamda function mutable.
+    //Remember that the lambda just takes a copy of the capture variable and the object created is initialized with
+    //the parameter only once.Even if you call the lamda function multiple times, the initializtion wont be done.
+    stateful_test2();
+
+    //capture by reference
+    stateful_test3();
+
+    //capture all by value =
+    stateful_test4();
+
+    //capture all by reference &
+    stateful_test5();
+
+    //capture all by value and z by reference
+    stateful_test6();
+
+    //Applying all of this to a person object
+    stateful_test7();
+
+    //Applying all of this to a people object
+    stateful_test8();
+
     return 0;
 }

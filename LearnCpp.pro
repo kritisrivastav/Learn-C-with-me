@@ -6,10 +6,16 @@ CONFIG -= qt
 SOURCES += \
         FunctionObject.cpp \
         Multiplier.cpp \
+        People.cpp \
+        Person.cpp \
         functionpointers.cpp \
-        main.cpp
+        main.cpp \
+        utility.cpp
 
 HEADERS += \
     FunctionObject.h \
     Multiplier.h \
-    functionpointers.h
+    People.h \
+    Person.h \
+    functionpointers.h \
+    utility.h
