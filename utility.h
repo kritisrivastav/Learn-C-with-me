@@ -33,4 +33,11 @@ void stateful_test6();
 void stateful_test7();
 
 void stateful_test8();
+
+void checkTrianglesEquivalent();
+
+void test1();
+
+void test2();
+
 #endif // UTILITY_H

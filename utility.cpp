@@ -225,3 +225,49 @@ void stateful_test8()
 
 }
 
+void checkTrianglesEquivalent()
+{
+    struct Point{
+        int x;
+        int y;
+    };
+
+    Point p1{1,2};
+    Point p2{4,3};
+    Point p3{3,5};
+    Point p4{3,1};
+
+    std::vector<Point> triangle1{p1,p2,p3};
+    std::vector<Point> triangle2{p2,p3,p1};
+    std::vector<Point> triangle3{p1,p2,p4};
+
+    if(std::is_permutation(triangle1.begin(), triangle1.end(), triangle2.begin(), [](Point lhs, Point rhs){return lhs.x == rhs.x && lhs.y == rhs.y;}))
+    {
+        std::cout<<"Triangle 1 and Triangle 2 are equivalent"<<std::endl;
+    }
+    else{
+        std::cout<<"Triangle 1 and Triangl2 are not equivalent"<<std::endl;
+    }
+}
+
+void test1()
+{
+    std::vector<int> test_scores{93, 88, 75, 68, 65};
+    int bonus_points{5};
+
+    std::transform(test_scores.begin(), test_scores.end(), test_scores.begin(),[bonus_points](int scores){
+        return scores += bonus_points;
+    });
+
+    std::for_each(test_scores.begin(), test_scores.end(), [](int scores){std::cout<<scores<<"\t";});
+}
+
+void test2()
+{
+    std::vector<int> nums{1,2,3,4,5};
+
+    nums.erase(std::remove_if(nums.begin(), nums.end(),[](int num){ return num % 2 == 0;} ), nums.end());
+
+    std::for_each(nums.begin(), nums.end(), [](int num){ std::cout<<num<<"\t";});
+}
+

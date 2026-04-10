@@ -125,5 +125,12 @@ int main()
     //Applying all of this to a people object
     stateful_test8();
 
+    checkTrianglesEquivalent();
+
+    test1();
+
+    test2();
+
+
     return 0;
 }
