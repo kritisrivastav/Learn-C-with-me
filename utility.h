@@ -7,6 +7,7 @@
 #include <Person.h>
 #include <People.h>
 #include <functional>
+#include <Passwordvalidator.h>
 
 void print_if(std::vector<int>, bool (*predicate)(int));
 
@@ -39,5 +40,16 @@ void checkTrianglesEquivalent();
 void test1();
 
 void test2();
+
+void test3();
+
+void test4();
+
+bool in_between(const std::vector<int>& vecObj, int startValue, int endValue);
+
+void test5();
+
+void test6();
+
 
 #endif // UTILITY_H

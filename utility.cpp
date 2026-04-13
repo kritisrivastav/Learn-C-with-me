@@ -1,4 +1,5 @@
 #include <utility.h>
+#include <numeric>
 
 void print_if(std::vector<int> nums, bool (*predicate)(int))
 {
@@ -270,4 +271,67 @@ void test2()
 
     std::for_each(nums.begin(), nums.end(), [](int num){ std::cout<<num<<"\t";});
 }
+
+void test3()
+{
+    int start_value = 1;
+    int end_value = 10;
+    std::vector<int> nums{1,2,3,4,5,6, 7,8,9,10};
+    bool result = false;
+    result =std::all_of(nums.begin(), nums.end(), [start_value, end_value](int value){
+        return (value >=start_value && value <= end_value);}
+    );
+    std::cout<<"The result is"<<std::boolalpha<<result<<std::endl;
+}
+
+bool in_between(const std::vector<int>& vecObj, int startValue, int endValue)
+{
+    auto result = std::all_of(vecObj.begin(), vecObj.end(), [startValue, endValue](int num)
+                              {
+        return (num>= startValue && num <= endValue);
+    });
+    return result;
+}
+void test4()
+{
+    std::cout<<std::boolalpha;
+    std::vector<int> nums{10};
+    std::iota(nums.begin(), nums.end(), 1);
+    std::cout<<in_between(nums, 50,60)<<std::endl;
+    std::cout<<in_between(nums, 1,10)<<std::endl;
+}
+
+void test5()
+{
+    passwordValidator pv1{'$'};
+
+    std::string password ="hollywood$";
+
+    if(pv1.is_valid(password))
+    {
+        std::cout<<"The password is valid"<<std::endl;
+    }
+    else
+    {
+        std::cout<<"The password is invalid"<<std::endl;
+    }
+}
+
+void test6()
+{
+    passwordValidator pv1{std::vector<char>{'$','!','?'}};
+
+    std::string password ="hollywood$";
+
+    if(pv1.is_validForAVectorOfChars(password))
+    {
+        std::cout<<"The password is valid"<<std::endl;
+    }
+    else
+    {
+        std::cout<<"The password is invalid"<<std::endl;
+    }
+}
+
+
 

@@ -6,6 +6,7 @@ CONFIG -= qt
 SOURCES += \
         FunctionObject.cpp \
         Multiplier.cpp \
+        Passwordvalidator.cpp \
         People.cpp \
         Person.cpp \
         functionpointers.cpp \
@@ -15,6 +16,7 @@ SOURCES += \
 HEADERS += \
     FunctionObject.h \
     Multiplier.h \
+    Passwordvalidator.h \
     People.h \
     Person.h \
     functionpointers.h \
