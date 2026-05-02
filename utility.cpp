@@ -1,6 +1,7 @@
 #include <utility.h>
 #include <numeric>
 
+
 void print_if(std::vector<int> nums, bool (*predicate)(int))
 {
     //This function takes a vector and a function pointer as arguments
@@ -320,7 +321,6 @@ void test5()
 void test6()
 {
     passwordValidator pv1{std::vector<char>{'$','!','?'}};
-
     std::string password ="hollywood$";
 
     if(pv1.is_validForAVectorOfChars(password))
@@ -331,6 +331,115 @@ void test6()
     {
         std::cout<<"The password is invalid"<<std::endl;
     }
+}
+void displayPlayer(Player p)
+{
+    std::cout<<"Name:"<<"\t"<<p.getName()<<"\n";
+    std::cout<<"Age:"<<"\t"<<p.getAge()<<"\n";
+
+}
+void displayPlayerCharge(Player p)
+{
+    std::cout<<"player"<<"\t"<<p.getName()<<"\t"<<"charges rupees "<<p.getchargeForOneGameValue()<<"\t"<<"for one game"<<std::endl;
+}
+
+
+void test7()
+{
+    //Player empty;
+    //displayPlayer(empty);
+
+    Player John{28,"John",new int(1000000)};
+    displayPlayerCharge(John);
+    Player Frank{John};
+    Frank.setPlayerCharge(9999999);
+    Player::active_players();
+
+
+}
+
+void testShallowCopyProblem()
+{
+    //c1 is on stack since it is a local variable
+    ShallowCopy c1{"Kriti"};
+
+    ShallowCopy c2{c1};
+
+    c1.display_name();
+
+    c2.display_name();
+}
+
+void testDeepCopy()
+{
+    DeepCopy dObj{12};
+
+    DeepCopy dNext{dObj};
+
+    dObj.display_data();
+
+    dNext.display_data();
+
+}
+
+void testConstForClass()
+{
+    const ConstObjectDemo John{"John", "Healthy"};
+    ConstObjectDemo Frank{"Frank", "Degraded"};
+    //John.get_name(); wont be allowed
+    ConstObjectDemo::display_details(John);
+}
+
+void compileTimePolymorphism()
+{
+    CompileTimePoly* bObj;
+    Derived dObj;
+    bObj = &dObj;
+    bObj->say_hello();
+    std::unique_ptr<CompileTimePoly> baseObject = std::make_unique<Derived>();
+    baseObject->say_hello();
+    greetings(dObj);
+}
+
+void virtualFunctions()
+{
+    Account* ac1 = new Account();
+    Account* ac2 = new Savings();
+    Account* ac3 = new Checking();
+    Account* ac4 = new Trust();
+
+    ac1->display();
+    ac2->display();
+    ac3->display();
+    ac4->display();
+
+    Account* array[] = {ac2, ac3, ac4};
+    int arrLength = sizeof(array) / sizeof(array[0]);
+    for(int i = 0; i < arrLength; i++)
+    {
+        array[i]->display();
+    }
+
+    std::vector<Account*> vecObj{ac2, ac3, ac4};
+    for(auto& obj:vecObj)
+    {
+        obj->display();
+    }
+
+    delete ac1;
+    delete ac2;
+    delete ac3;
+    delete ac4;
+
+}
+
+void overrideDemo()
+{
+    OverrideBase* bObj = new OverrideBase();
+    bObj->say_hello();
+
+    OverrideBase* dObj = new OverrideDerived();
+    dObj->say_hello();
 }
 
 

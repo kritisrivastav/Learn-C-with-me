@@ -1,0 +1,15 @@
+debug/FunctionObject.o
+debug/Multiplier.o
+debug/Passwordvalidator.o
+debug/People.o
+debug/Person.o
+debug/Player.o
+debug/Shallowcopy.o
+debug/account.o
+debug/compiletimepoly.o
+debug/constobjectdemo.o
+debug/deepcopy.o
+debug/functionpointers.o
+debug/main.o
+debug/overridebase.o
+debug/utility.o

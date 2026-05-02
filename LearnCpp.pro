@@ -9,8 +9,15 @@ SOURCES += \
         Passwordvalidator.cpp \
         People.cpp \
         Person.cpp \
+        Player.cpp \
+        Shallowcopy.cpp \
+        account.cpp \
+        compiletimepoly.cpp \
+        constobjectdemo.cpp \
+        deepcopy.cpp \
         functionpointers.cpp \
         main.cpp \
+        overridebase.cpp \
         utility.cpp
 
 HEADERS += \
@@ -19,5 +26,12 @@ HEADERS += \
     Passwordvalidator.h \
     People.h \
     Person.h \
+    Player.h \
+    Shallowcopy.h \
+    account.h \
+    compiletimepoly.h \
+    constobjectdemo.h \
+    deepcopy.h \
     functionpointers.h \
+    overridebase.h \
     utility.h

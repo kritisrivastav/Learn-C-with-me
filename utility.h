@@ -4,10 +4,18 @@
 
 #include <vector>
 #include <iostream>
+#include <memory>
+#include <account.h>
+#include <Player.h>
 #include <Person.h>
 #include <People.h>
+#include <overridebase.h>
+#include <Shallowcopy.h>
+#include <deepcopy.h>
 #include <functional>
+#include <compiletimepoly.h>
 #include <Passwordvalidator.h>
+#include <constobjectdemo.h>
 
 void print_if(std::vector<int>, bool (*predicate)(int));
 
@@ -51,5 +59,24 @@ void test5();
 
 void test6();
 
+void displayPlayer(Player p);
+
+void test7();
+
+void displayPlayerCharge(Player);
+
+void setPlayerCharge(int);
+
+void testShallowCopyProblem();
+
+void testDeepCopy();
+
+void testConstForClass();
+
+void compileTimePolymorphism();
+
+void virtualFunctions();
+
+void overrideDemo();
 
 #endif // UTILITY_H

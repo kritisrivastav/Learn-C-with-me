@@ -5,6 +5,7 @@
 #include <Person.h>
 #include <utility.h>
 #include <vector>
+#include <Player.h>
 #include <algorithm>
 
 
@@ -139,5 +140,31 @@ int main()
 
     test6();
 
+    //Creating player object scope limiting within braces
+    {
+        Player frank;
+        frank.setAge(25);
+        frank.setName("Frank");
+
+    }
+
+    {
+        Player* John = new Player;
+        John->setAge(40);
+        John->setName("John Pandurang");
+        delete John;//Without delete destructor is not called even if it goes out of scope
+    }
+    //test7();
+    //testShallowCopyProblem();
+    testDeepCopy();
+
+    //Compile time polymorphism
+    compileTimePolymorphism();
+
+    //virtual functions
+    virtualFunctions();
+
+    //override specifier
+    overrideDemo();
     return 0;
 }
